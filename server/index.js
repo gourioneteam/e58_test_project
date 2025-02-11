@@ -14,24 +14,30 @@ app.use(express.json());
 app.use(cookieParser());
 
 
-const allowedOrigins = ["http://localhost:5173", "https://sms-frontend-pi.vercel.app/"];
+// const allowedOrigins = ["http://localhost:5173", "https://sms-frontend-pi.vercel.app/"];
 
-app.use(cors({
-    origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error("Not allowed by CORS"));
-        }
-    },
-    credentials: true,  // Allow cookies if needed
-}));
+// app.use(cors({
+//     origin: (origin, callback) => {
+//         if (!origin || allowedOrigins.includes(origin)) {
+//             callback(null, true);
+//         } else {
+//             callback(new Error("Not allowed by CORS"));
+//         }
+//     },
+//     credentials: true,  // Allow cookies if needed
+// }));
 // app.use(cors({
 //     origin: process.env.FRONTEND_URL,
 //     credentials: true,
 //     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 //     allowedHeaders: ['Content-Type', 'Authorization']
 // }));
+
+app.use(cors({
+    origin: 'https://sms-frontend-pi.vercel.app', // Replace with your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    credentials: true, // Allow cookies and credentials
+  }));
 
 app.get('/',(req,res)=>{
     res.send("welcome")
