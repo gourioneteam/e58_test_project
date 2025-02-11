@@ -10,7 +10,7 @@ const Students = () => {
     const fetchProfileAndStudents = async () => {
       try {
         // Fetch the logged-in user's profile
-        const profileResponse = await axios.get('http://localhost:5001/api/users/profile', {
+        const profileResponse = await axios.get('https://sms-backend-alpha-plum.vercel.app/api/users/profile', {
           withCredentials: true,
         });
 
@@ -18,7 +18,7 @@ const Students = () => {
         if (profileResponse.data.role === 'admin') {
           setIsAdmin(true);
           // Fetch students list if the user is an admin
-          const studentsResponse = await axios.get('http://localhost:5001/api/users/students', {
+          const studentsResponse = await axios.get('https://sms-backend-alpha-plum.vercel.app/api/users/students', {
             withCredentials: true,
           });
           setStudents(studentsResponse.data);

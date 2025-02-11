@@ -7,7 +7,7 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:5001/api/auth/logout', {}, { withCredentials: true });
+      await axios.post('https://sms-backend-alpha-plum.vercel.app/api/auth/logout', {}, { withCredentials: true });
       setIsAuthenticated(false);
       navigate('/login');
     } catch (error) {

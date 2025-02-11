@@ -7,7 +7,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/api/users/profile', {
+        const response = await axios.get('https://sms-backend-alpha-plum.vercel.app/api/users/profile', {
           withCredentials: true,
         });
         setProfile(response.data);

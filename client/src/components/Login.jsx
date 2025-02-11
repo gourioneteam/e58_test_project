@@ -12,7 +12,7 @@ function Login ({ setIsAuthenticated }) {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:5001/api/auth/login',
+        'https://sms-backend-alpha-plum.vercel.app/api/auth/login',
         { username, password },
         { withCredentials: true }
       );

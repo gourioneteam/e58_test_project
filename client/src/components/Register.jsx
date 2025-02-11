@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+// dotenv.config()
+
+// const apiKey = import.meta.env.VITE_API_KEY;
+// console.log(apiKey)
+
 const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -12,7 +17,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5001/api/auth/register', {
+      const response = await axios.post('https://sms-backend-alpha-plum.vercel.app/api/auth/register', {
         username,
         password,
         role,
